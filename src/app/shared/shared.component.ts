@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-shared',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SharedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ds: DataService) { }
 
   ngOnInit(): void {
+    this.ds.data.subscribe( x => {
+      console.log('sgared conpo', x);
+    })
   }
 
 }

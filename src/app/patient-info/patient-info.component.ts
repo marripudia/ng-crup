@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Route } from '@angular/router';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-patient-info',
@@ -11,7 +13,7 @@ export class PatientInfoComponent implements OnInit {
   @Input() studentArray: any;
   @Output() sendDataToParent: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
     this.dataFromParentCmponent = this.studentArray;
@@ -24,7 +26,9 @@ export class PatientInfoComponent implements OnInit {
       marks: '60',
       subject: 'angular'
     });
+    this.dataService.sendData(this.studentArray);
     this.sendDataToParent.emit(this.studentArray);
+
     console.log('clicked ', this.studentArray);
 
   }
