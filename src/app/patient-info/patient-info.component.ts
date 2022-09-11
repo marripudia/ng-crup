@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-patient-info',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientInfoComponent implements OnInit {
 
+  dataFromParentCmponent: any ;
+  @Input() studentArray: any;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.dataFromParentCmponent = this.studentArray;
+    console.log('dataFrom parent ', this.dataFromParentCmponent);
   }
 
 }
