@@ -14,6 +14,10 @@ export class AppComponent implements OnInit{
 
   }
 
+  onDataFromChild(event: any) {
+    console.log('from child', event);
+  }
+
   ngOnInit(): void {
     console.log('call me on init');
     this.studentArray = [

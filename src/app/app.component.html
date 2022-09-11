@@ -1,3 +1,3 @@
 <!-- How to pass data form component to component-->
 
-<app-patient-info [studentArray]="studentArray"></app-patient-info>
+<app-patient-info [studentArray]="studentArray" (sendDataToParent)="onDataFromChild($event)"></app-patient-info>
